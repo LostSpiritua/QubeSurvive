@@ -65,11 +65,14 @@ public class Enemy : MonoBehaviour
     public void DamageByCollision()
     {
         health = health - player.playerArmor;
-        
-        if (health <= 0)
-        {
-            gameObject.SetActive(false);
-        }
+        DisableOnLowHealh();
+    }
+
+    // Damage that enemy recieve by player's weapon
+    public void DamageByWeapon()
+    {
+        health -= player.currentWeapon.attackPower;
+        DisableOnLowHealh();
     }
 
     // Some activity at collision
@@ -82,4 +85,24 @@ public class Enemy : MonoBehaviour
             enemyRB.AddRelativeForce(Vector3.back * returnPower, ForceMode.Impulse); // Push back enemy out of player at collision
         }
     }
+
+    // Control by player's weapon hit 
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            
+            DamageByWeapon();
+        }
+    }
+
+    // Disable enemy game object when healt low than 0
+    private void DisableOnLowHealh()
+    {
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
 }
