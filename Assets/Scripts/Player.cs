@@ -6,15 +6,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    public float playerSpeed = 1.0f; // Player's move speed
+    public float playerHealth = 100.0f; // Player's health  
+    public float playerArmor = 50.0f; // Player's Armor
+    public float playerSpeed = 2.0f; // Player's move speed
+    public float armorRestoreRate = 1.0f; // Control how fast player restore armor
 
     private float mapBounds = 16.0f; // Bounds of square map
-
+    private float playerArmorDefault; // Variable for save starting value of armor
     // Start is called before the first frame update
     void Start()
     {
-       
+        playerArmorDefault = playerArmor;
     }
 
     // Update is called once per frame
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
         LookTowardMouse();
         StopPlayerAtBound();
         PlayerMove(); 
+        ArmorRestore();
+        
     }
 
     private void FixedUpdate()
@@ -88,6 +92,14 @@ public class Player : MonoBehaviour
         if (pos.x < -mapBounds && pos.z < -mapBounds)
         {
             transform.position = new Vector3(-mapBounds, pos.y, -mapBounds);
+        }
+    }
+
+    private void ArmorRestore()
+    {
+        if (playerArmor < playerArmorDefault)
+        {
+        playerArmor += Time.deltaTime * armorRestoreRate;
         }
     }
 
