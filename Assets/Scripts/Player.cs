@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
 
     private float mapBounds = 16.0f; // Bounds of square map
     private float playerArmorDefault; // Variable for save starting value of armor
+    private ObjectPooler pool; 
+    
     // Start is called before the first frame update
     void Start()
     {
         playerArmorDefault = playerArmor;
-        
+        pool = GameObject.Find("ObjectPooler").GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,12 @@ public class Player : MonoBehaviour
         StopPlayerAtBound();
         PlayerMove(); 
         ArmorRestore();
-        
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            pool.SpawnFromPool("Enemy", new Vector3
+                (transform.position.x + 5, transform.position.y, transform.position.z + 5 ), Quaternion.identity);
+        }        
     }
 
     private void FixedUpdate()

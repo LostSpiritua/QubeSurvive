@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 100; // Enemy's health    
+    public float healthStart = 100; // Enemy's health    
     public float speed = 1.5f; // Enemy's move speed
-    public float attackPower = 25.0f; // Enemy's attack power
-    public float returnPower = 2.0f; // Power with enemy return from player collision
+    public float attackPower = 10.0f; // Enemy's attack power
+    public float returnPower = 7.0f; // Power with enemy return from player collision
 
     private GameObject playerObject;
     private Player player;
     private Rigidbody enemyRB;
-    
+    public float health;
+
     // Start is called before the first frame update
     void Start()
     {
+        health = healthStart;
         playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<Player>();
         enemyRB = GetComponent<Rigidbody>();
+        
     }
 
+    private void OnEnable()
+    {
+        health = healthStart;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,9 +39,10 @@ public class Enemy : MonoBehaviour
     {
         if (playerObject.activeSelf)
         {
-        transform.LookAt(playerObject.transform.position);
+           
+            transform.LookAt(playerObject.transform.position);
        
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
     }
 

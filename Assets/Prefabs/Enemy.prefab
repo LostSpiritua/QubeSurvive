@@ -248,7 +248,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7076433063187341876
 MonoBehaviour:
@@ -262,7 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00594135bad0e7745a5d642c6f130394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  healthStart: 25
   speed: 1.5
-  attackPower: 5
+  attackPower: 10
   returnPower: 7
+  health: 0
