@@ -20,6 +20,7 @@ public class ObjectPooler : MonoBehaviour
     {
         poolDictionary= new Dictionary<string, Queue<GameObject>>();
 
+        // Create pool of objects
         foreach (Pool pool in pools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
@@ -35,6 +36,7 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
+    // Method for spawning by tag from pool at specific position
     public GameObject SpawnFromPool (string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))

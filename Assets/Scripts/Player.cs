@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float playerArmor = 50.0f; // Player's Armor
     public float playerSpeed = 2.0f; // Player's move speed
     public float armorRestoreRate = 1.0f; // Control how fast player restore armor
-    public Weapon currentWeapon;
+    public Weapon currentWeapon; // Weapon that player using now
 
     private float mapBounds = 16.0f; // Bounds of square map
     private float playerArmorDefault; // Variable for save starting value of armor
