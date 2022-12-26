@@ -18,7 +18,7 @@ public class ObjectPooler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        poolDictionary= new Dictionary<string, Queue<GameObject>>();
+        poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
         // Create pool of objects
         foreach (Pool pool in pools)
@@ -37,7 +37,7 @@ public class ObjectPooler : MonoBehaviour
     }
 
     // Method for spawning by tag from pool at specific position
-    public GameObject SpawnFromPool (string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -54,6 +54,6 @@ public class ObjectPooler : MonoBehaviour
         poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
-    }    
-    
+    }
+
 }

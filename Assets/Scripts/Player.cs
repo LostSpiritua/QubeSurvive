@@ -12,36 +12,25 @@ public class Player : MonoBehaviour
     public float armorRestoreRate = 1.0f; // Control how fast player restore armor
     public Weapon currentWeapon; // Weapon that player using now
 
-    private float mapBounds = 16.0f; // Bounds of square map
+    private readonly float mapBounds = 16.0f; // Bounds of square map
     private float playerArmorDefault; // Variable for save starting value of armor
-    private ObjectPooler pool; 
-    
+    private ObjectPooler pool;
+
     // Start is called before the first frame update
     void Start()
     {
         playerArmorDefault = playerArmor;
-        pool = GameObject.Find("ObjectPooler").GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         LookTowardMouse();
         StopPlayerAtBound();
-        PlayerMove(); 
+        PlayerMove();
         ArmorRestore();
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            pool.SpawnFromPool("Enemy", new Vector3
-                (transform.position.x + 5, transform.position.y, transform.position.z + 5 ), Quaternion.identity);
-        }        
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
 
     // Rotate player relativly cursor position
     private void LookTowardMouse()
@@ -59,10 +48,10 @@ public class Player : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-        
+
         Vector3 inputDirection = new Vector3(inputX, 0f, inputY).normalized;
-                
-        gameObject.transform.Translate(inputDirection * playerSpeed * Time.deltaTime, Space.World);     
+
+        gameObject.transform.Translate(inputDirection * playerSpeed * Time.deltaTime, Space.World);
     }
 
     // Not allow player move out of map
@@ -108,7 +97,7 @@ public class Player : MonoBehaviour
     {
         if (playerArmor < playerArmorDefault)
         {
-        playerArmor += Time.deltaTime * armorRestoreRate;
+            playerArmor += Time.deltaTime * armorRestoreRate;
         }
     }
 

@@ -6,25 +6,32 @@ using static UnityEditor.PlayerSettings;
 public class CameraMove : MonoBehaviour
 {
     public GameObject player;
-    
+
     private Player playerScrpt; // Access to Player variables
-    private float panBorderThickness = 0.17f; // Space in pixels between screen edge and border when camera start moving by player
-    private float cameraStopPos = 15.5f; // Point on map at the bound when camera should stop moving
-    
+    private readonly float panBorderThickness = 0.17f; // Space in pixels between screen edge and border when camera start moving by player
+    private readonly float cameraStopPos = 15.5f; // Point on map at the bound when camera should stop moving
+
     private void Start()
     {
-        playerScrpt = player.GetComponent<Player>();     
-        
+        playerScrpt = player.GetComponent<Player>();
+
     }
     private void LateUpdate()
     {
-        CameraMoveByPlayer(cameraStopPos);
-        
+        if (player != null)
+        {
+            CameraMoveByPlayer(cameraStopPos);
+        }
+        else
+        {
+            Debug.LogError("Assign Player Object to CameraMove script");
+        }
+
     }
 
     // Move main camera by player
     private void CameraMoveByPlayer(float mapBounds)
-    {        
+    {
         Vector3 pos = player.transform.position;
         if (pos.x > mapBounds && pos.z > mapBounds)
         {
@@ -57,7 +64,7 @@ public class CameraMove : MonoBehaviour
             MoveUp();
             MoveLeft();
             return;
-        } 
+        }
         if (pos.x < -mapBounds)
         {
             MoveDown();

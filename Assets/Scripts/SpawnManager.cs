@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,38 +6,45 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public List<string> spawnList;
+    public ObjectPooler pool;
+    public float enemySpawnRate = 1.0f;
 
-    private ObjectPooler pool;
-    private float mapBounds = 16.0f; // Bounds of square map
+    private List<string> enemySpawnList;
+    private List<string> bonusSpawnList;
+    private List<string> weaponSpawnList;
+    private readonly float mapBounds = 16.0f; // Bounds of square map
+    private bool readDone = false; // Confirmation of pool read done
 
     // Start is called before the first frame update
     void Start()
     {
-        List<string> spawnList = new();
-        pool = GameObject.Find("ObjectPooler").GetComponent<ObjectPooler>();
+        enemySpawnList = new();
+        bonusSpawnList = new();
 
-        Invoke("ReadPool", 2);
+        if (pool != null)
+        {
+            Invoke(nameof(ReadPool), 2);
+        }
+        else { Debug.LogError("Assign ObjectPooler to SpawnManager"); }
 
-        InvokeRepeating("SpawnEnemyAtRandomPos", 5f, 0.5f);
-    
+        StartCoroutine(SpawnWithRate(SpawnRandomEnemyAtRandomPos, enemySpawnRate));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Spawn random enemy at random position in bounds of map
-    public void SpawnEnemyAtRandomPos()
+    public void SpawnRandomEnemyAtRandomPos()
     {
-        int randomEnemy = Random.Range(0, spawnList.Count);
-        float randomXpos = Random.Range(-mapBounds, mapBounds);
-        float randomYpos = Random.Range(-mapBounds, mapBounds);
+        int randomEnemy = UnityEngine.Random.Range(0, enemySpawnList.Count);
+        float randomXpos = UnityEngine.Random.Range(-mapBounds, mapBounds);
+        float randomYpos = UnityEngine.Random.Range(-mapBounds, mapBounds);
         Vector3 randPos = new Vector3(randomXpos, 0.3f, randomYpos);
 
-        pool.SpawnFromPool(spawnList[randomEnemy], randPos, Quaternion.identity);
+        pool.SpawnFromPool(enemySpawnList[randomEnemy], randPos, Quaternion.identity);
 
     }
 
@@ -45,8 +53,32 @@ public class SpawnManager : MonoBehaviour
     {
         foreach (ObjectPooler.Pool pooles in pool.pools)
         {
-            spawnList.Add(pooles.tag);
+            if (pooles.tag.Contains("Enemy"))
+            {
+                enemySpawnList.Add(pooles.tag);
+            }
+            if (pooles.tag.Contains("Bonus"))
+            {
+                bonusSpawnList.Add(pooles.tag);
+            }
+            if (pooles.tag.Contains("Weapon"))
+            {
+                weaponSpawnList.Add(pooles.tag);
+            }
         }
-        
+        readDone = true;
+
+    }
+
+    // Spawn enemy with specific rate
+    IEnumerator SpawnWithRate(Action SpawnMethod, float rate)
+    {
+        if (readDone)
+        {
+            SpawnMethod();
+        }
+        yield return new WaitForSeconds(rate);
+
+        StartCoroutine(SpawnWithRate(SpawnRandomEnemyAtRandomPos, enemySpawnRate));
     }
 }

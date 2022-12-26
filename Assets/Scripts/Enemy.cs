@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private GameObject playerObject;
     private Player player;
     private Rigidbody enemyRB;
-    public float health;
+    private float health;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<Player>();
         enemyRB = GetComponent<Rigidbody>();
-        
+
     }
 
     private void OnEnable()
@@ -39,9 +39,9 @@ public class Enemy : MonoBehaviour
     {
         if (playerObject.activeSelf)
         {
-           
+
             transform.LookAt(playerObject.transform.position);
-       
+
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
     }
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     // Some calculation on enemy's collision with player
     private void Attack()
     {
-        float attack = - player.playerArmor + attackPower;
+        float attack = -player.playerArmor + attackPower;
 
         if (attack > 0)
         {
@@ -60,10 +60,10 @@ public class Enemy : MonoBehaviour
 
         if (player.playerArmor < 0)
         {
-            player.playerArmor= 0;
+            player.playerArmor = 0;
         }
 
-        if (player.playerHealth <= 0) 
+        if (player.playerHealth <= 0)
         {
             playerObject.SetActive(false);
         }
@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-            
+
             DamageByWeapon();
         }
     }

@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,19 +33,19 @@ public class Weapon : MonoBehaviour
             {
                 weaponVFX.Emit(1);
                 weaponVFX.Play();
-            }       
-        }       
+            }
+        }
     }
 
     public void ShootStop()
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if(weaponVFX != null)
+            if (weaponVFX != null)
             {
                 weaponVFX.Stop();
             }
         }
     }
 
- }
+}
