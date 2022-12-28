@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Drop : MonoBehaviour
@@ -25,5 +26,13 @@ public class Drop : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         gameObject.SetActive(false);
+    }
+
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+        }
     }
 }

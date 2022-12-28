@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Enemy follow for the player
-    private void MoveToPlayer()
+    public virtual void MoveToPlayer()
     {
         if (playerObject.activeSelf)
         {
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Some calculation on enemy's collision with player
-    private void Attack()
+    public virtual void Attack()
     {
         float attack = -player.playerArmor + attackPower;
 
@@ -70,21 +70,21 @@ public class Enemy : MonoBehaviour
     }
 
     // Damage that enemy recieve by collision with player
-    public void DamageByCollision()
+    public virtual void DamageByCollision()
     {
         health = health - player.playerArmor;
         DisableOnLowHealh();
     }
 
     // Damage that enemy recieve by player's weapon
-    public void DamageByWeapon()
+    public virtual void DamageByWeapon()
     {
         health -= player.currentWeapon.attackPower;
         DisableOnLowHealh();
     }
 
     // Some activity at collision
-    private void OnCollisionEnter(Collision collision)
+    public virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Control by player's weapon hit 
-    private void OnParticleCollision(GameObject other)
+    public virtual void OnParticleCollision(GameObject other)
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Disable enemy game object when healt low than 0
-    private void DisableOnLowHealh()
+    public virtual void DisableOnLowHealh()
     {
         if (health <= 0)
         {
