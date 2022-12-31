@@ -44,30 +44,7 @@ public class Enemy : MonoBehaviour
 
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
-    }
-
-    // Some calculation on enemy's collision with player
-    public virtual void Attack()
-    {
-        float attack = -player.playerArmor + attackPower;
-
-        if (attack > 0)
-        {
-            player.playerHealth -= attack;
-        }
-
-        player.playerArmor -= attackPower;
-
-        if (player.playerArmor < 0)
-        {
-            player.playerArmor = 0;
-        }
-
-        if (player.playerHealth <= 0)
-        {
-            playerObject.SetActive(false);
-        }
-    }
+    }   
 
     // Damage that enemy recieve by collision with player
     public virtual void DamageByCollision()
@@ -88,7 +65,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Attack();
+            player.HealthDamage(attackPower);
             DamageByCollision();
             enemyRB.AddRelativeForce(Vector3.back * returnPower, ForceMode.Impulse); // Push back enemy out of player at collision
         }

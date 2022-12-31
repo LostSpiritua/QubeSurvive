@@ -29,6 +29,7 @@ public class Weapon : MonoBehaviour
         ShootStop();
     }
 
+    // Start shooting vfx simulation
     public virtual void ShootStart()
     {
         if (Input.GetMouseButtonDown(0))
@@ -48,6 +49,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    // Stop shooting vfx simulation
     public virtual void ShootStop()
     {
         if (Input.GetMouseButtonUp(0))
@@ -63,6 +65,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    // Set shooting rate value to vfx simulation
     void WeaponInitialize()
     {
         var emissionP = projectileVFX.emission;

@@ -264,5 +264,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthStart: 100
   speed: 1.5
-  attackPower: 10
+  attackPower: 25
   returnPower: 7

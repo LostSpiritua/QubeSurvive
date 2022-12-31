@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 
 public class SpawnManager : MonoBehaviour
 {
+    
     public ObjectPooler pool;
     public float enemySpawnRate = 1.0f;
 
@@ -20,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     {
         enemySpawnList = new();
         bonusSpawnList = new();
-
+        
         if (pool != null)
         {
             Invoke(nameof(ReadPool), 2);
@@ -33,7 +35,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     // Spawn random enemy at random position in bounds of map

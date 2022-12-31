@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Advanced variant emit new particle system by another particle system. Shoot be attcahed to emmiter vfx
 public class EventOnParticleCollision : MonoBehaviour
 {
     public string collisonVFXFromPool;
@@ -35,7 +36,11 @@ public class EventOnParticleCollision : MonoBehaviour
         {
             rot = Quaternion.LookRotation(particleCollisionEvent.normal);
         }
-        else rot = Quaternion.identity;
+        else
+        { 
+            rot = Quaternion.identity;
+        }
+
         GameObject objVFX = pool.SpawnFromPool(collisonVFXFromPool, pos, rot);
         ParticleSystem vfx = objVFX.GetComponent<ParticleSystem>();
         vfx.Emit(1);

@@ -14,12 +14,13 @@ public class Player : MonoBehaviour
 
     private readonly float mapBounds = 16.0f; // Bounds of square map
     private float playerArmorDefault; // Variable for save starting value of armor
-    private ObjectPooler pool;
-
+    private float playerHealthDefault;
+    
     // Start is called before the first frame update
     void Start()
     {
         playerArmorDefault = playerArmor;
+        playerHealthDefault = playerHealth;
     }
 
     // Update is called once per frame
@@ -93,6 +94,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Restore Armor by time
     private void ArmorRestore()
     {
         if (playerArmor < playerArmorDefault)
@@ -101,4 +103,27 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Health damage
+    public void HealthDamage (float attackPower)
+    {
+        float attack = -playerArmor + attackPower;
+
+        if (attack > 0)
+        {
+            playerHealth -= attack;
+        }
+
+        playerArmor -= attackPower;
+
+        if (playerArmor < 0)
+        {
+            playerArmor = 0;
+        }
+
+        if (playerHealth <= 0)
+        {
+            playerHealth = playerHealthDefault;
+            GameManager.Instance.LivesAction(-1);
+        }
+    }
 }

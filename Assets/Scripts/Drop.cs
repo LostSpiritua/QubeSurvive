@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Drop : MonoBehaviour
@@ -21,6 +22,7 @@ public class Drop : MonoBehaviour
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
 
+    // Time of life bonus after spawning
     IEnumerator ActiveTimer(float time)
     {
         yield return new WaitForSeconds(time);
@@ -28,11 +30,14 @@ public class Drop : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public virtual void OnCollisionEnter(Collision collision)
+    public virtual void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+       
+        if (other.gameObject.CompareTag("Player"))
         {
-
+            
+            gameObject.SetActive(false);
         }
     }
-}
+}   
+
