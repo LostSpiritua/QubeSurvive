@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 457249503}
   - component: {fileID: 457249505}
   - component: {fileID: 457249504}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,8 +481,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.9
+  m_Color: {r: 1, g: 0.9847644, b: 0.8726415, a: 1}
+  m_Intensity: 1.62
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -494,7 +494,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.26
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -1187,7 +1187,7 @@ GameObject:
   - component: {fileID: 1170028176}
   - component: {fileID: 1170028177}
   - component: {fileID: 1170028178}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1321,7 +1321,7 @@ GameObject:
   - component: {fileID: 1405200132}
   - component: {fileID: 1405200134}
   - component: {fileID: 1405200133}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1448,7 +1448,7 @@ GameObject:
   - component: {fileID: 1539802432}
   - component: {fileID: 1539802431}
   - component: {fileID: 1539802435}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MainHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 1619527163}
   - component: {fileID: 1619527165}
   - component: {fileID: 1619527164}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArmorFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1677,7 +1677,7 @@ GameObject:
   - component: {fileID: 1709244084}
   - component: {fileID: 1709244085}
   - component: {fileID: 1709244086}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArmorBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2108,6 +2108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502238542166542353, guid: 41929aef0e9af204a886c298abdf2a92,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
