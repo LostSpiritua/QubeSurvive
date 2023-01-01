@@ -3,29 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BarSlider : MonoBehaviour
+public abstract class BarSlider : MonoBehaviour
 {
     public Gradient gradient;
     public Image fill;
 
-    private Slider slider;
+    protected Player player;
+    protected Slider slider;
         
-    private void Start()
+    void Start()
     {
         slider = GetComponent<Slider>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        HUDInitialize();
     }
 
-    public virtual void SetMaxValue(float value)
+    
+    // Read & set max value for BarSlide
+    public void SetMaxValue(float value)
     {
-        slider.maxValue= value;
+        slider.maxValue = value;
         slider.value = value;
 
         fill.color = gradient.Evaluate(1f);
     }
 
-    public virtual void SetValue(float value)
+    // Set value to BarSlide
+    public void SetValue(float value)
     {
         slider.value = value;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+
+    // Update MainHUD
+    public abstract void HUDUpdate();
+
+    // Initialize MainHUD at start
+    public abstract void HUDInitialize();  
+        
 }

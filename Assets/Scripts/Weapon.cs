@@ -66,7 +66,7 @@ public class Weapon : MonoBehaviour
     }
 
     // Set shooting rate value to vfx simulation
-    void WeaponInitialize()
+    public virtual void WeaponInitialize()
     {
         var emissionP = projectileVFX.emission;
         emissionP.rateOverTime = fireRate;

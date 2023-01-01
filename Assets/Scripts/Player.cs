@@ -11,23 +11,26 @@ public class Player : MonoBehaviour
     public float playerSpeed = 2.0f; // Player's move speed
     public float armorRestoreRate = 1.0f; // Control how fast player restore armor
     public Weapon currentWeapon; // Weapon that player using now
+    public Color damageColor;
 
-    private readonly float mapBounds = 16.0f; // Bounds of square map
     private float playerArmorDefault; // Variable for save starting value of armor
     private float playerHealthDefault;
-    
+    private HudUpdate HUD;
+    private Renderer playerMat;
+
     // Start is called before the first frame update
     void Start()
     {
         playerArmorDefault = playerArmor;
         playerHealthDefault = playerHealth;
+        HUD = GameObject.Find("MainHUD").GetComponent<HudUpdate>();
+        playerMat = gameObject.GetComponentInChildren<Renderer>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         LookTowardMouse();
-        StopPlayerAtBound();
         PlayerMove();
         ArmorRestore();
     }
@@ -55,45 +58,7 @@ public class Player : MonoBehaviour
         gameObject.transform.Translate(inputDirection * playerSpeed * Time.deltaTime, Space.World);
     }
 
-    // Not allow player move out of map
-    private void StopPlayerAtBound()
-    {
-        Vector3 pos = gameObject.transform.position;
-
-        if (pos.x > mapBounds)
-        {
-            transform.position = new Vector3(mapBounds, pos.y, pos.z);
-        }
-        if (pos.x < -mapBounds)
-        {
-            transform.position = new Vector3(-mapBounds, pos.y, pos.z);
-        }
-        if (pos.z > mapBounds)
-        {
-            transform.position = new Vector3(pos.x, pos.y, mapBounds);
-        }
-        if (pos.z < -mapBounds)
-        {
-            transform.position = new Vector3(pos.x, pos.y, -mapBounds);
-        }
-        if (pos.x > mapBounds && pos.z > mapBounds)
-        {
-            transform.position = new Vector3(mapBounds, pos.y, mapBounds);
-        }
-        if (pos.x < -mapBounds && pos.z > mapBounds)
-        {
-            transform.position = new Vector3(-mapBounds, pos.y, mapBounds);
-        }
-        if (pos.x > mapBounds && pos.z < -mapBounds)
-        {
-            transform.position = new Vector3(mapBounds, pos.y, -mapBounds);
-        }
-        if (pos.x < -mapBounds && pos.z < -mapBounds)
-        {
-            transform.position = new Vector3(-mapBounds, pos.y, -mapBounds);
-        }
-    }
-
+   
     // Restore Armor by time
     private void ArmorRestore()
     {
@@ -111,7 +76,8 @@ public class Player : MonoBehaviour
         if (attack > 0)
         {
             playerHealth -= attack;
-        }
+            StartCoroutine(TakeDamege(damageColor));
+        } else StartCoroutine(TakeDamege(Color.white));
 
         playerArmor -= attackPower;
 
@@ -124,6 +90,16 @@ public class Player : MonoBehaviour
         {
             playerHealth = playerHealthDefault;
             GameManager.Instance.LivesAction(-1);
+            HUD.LivesMinus();
         }
+    }
+
+    IEnumerator TakeDamege(Color color)
+    {
+        playerMat.material.SetColor("_BaseColor", color);
+
+        yield return new WaitForSeconds(0.1f);
+
+        playerMat.material.SetColor("_BaseColor", Color.gray);
     }
 }
