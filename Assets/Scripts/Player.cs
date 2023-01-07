@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     public float playerSpeed = 2.0f; // Player's move speed
     public float armorRestoreRate = 1.0f; // Control how fast player restore armor
     public Weapon currentWeapon; // Weapon that player using now
-    public Color damageColor;
+    public Color damageColor; // Color at damage
+    public bool armorBonus = false; // Freeze armor at default value if true
 
-    private float playerArmorDefault; // Variable for save starting value of armor
-    private float playerHealthDefault;
-    private HudUpdate HUD;
-    private Renderer playerMat;
+    private float playerArmorDefault; // Variable for saving starting value of armor
+    private float playerHealthDefault; // Variable for saving starting value of health
+    private HudUpdate HUD; // Access to HUDUpdate script    
+    private Renderer playerMat; // Player material
+    private Color playerColor; // Player material's color
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
         playerHealthDefault = playerHealth;
         HUD = GameObject.Find("MainHUD").GetComponent<HudUpdate>();
         playerMat = gameObject.GetComponentInChildren<Renderer>();
+        playerColor = playerMat.material.GetColor("_BaseColor");
     }
 
     // Update is called once per frame
@@ -71,35 +74,57 @@ public class Player : MonoBehaviour
     // Health damage
     public void HealthDamage (float attackPower)
     {
-        float attack = -playerArmor + attackPower;
-
-        if (attack > 0)
+        if (!armorBonus)
         {
-            playerHealth -= attack;
-            StartCoroutine(TakeDamege(damageColor));
-        } else StartCoroutine(TakeDamege(Color.white));
+            float attack = -playerArmor + attackPower;
 
-        playerArmor -= attackPower;
+            if (attack > 0)
+            {
+                playerHealth -= attack;
+                StartCoroutine(TakeDamege(damageColor));
+            }
+            else StartCoroutine(TakeDamege(Color.white));
 
-        if (playerArmor < 0)
-        {
-            playerArmor = 0;
+            playerArmor -= attackPower;
+
+            if (playerArmor < 0)
+            {
+                playerArmor = 0;
+            }
+
+            if (playerHealth <= 0)
+            {
+                GameManager.Instance.LivesAction(-1);
+                HUD.LivesHUDUpdate();
+                if (!(GameManager.Instance.Lives < 0)) 
+                {
+                    playerHealth = playerHealthDefault;
+                }
+            }
+
         }
 
-        if (playerHealth <= 0)
-        {
-            playerHealth = playerHealthDefault;
-            GameManager.Instance.LivesAction(-1);
-            HUD.LivesMinus();
-        }
     }
 
+    // Heal player for healPoint value
+    public void Heal (float healPoint)
+    {
+        playerHealth += healPoint;
+
+        if (playerHealth < playerHealthDefault)
+        {
+            playerHealth = playerHealthDefault;
+        }
+        HUD.BarUpdate();
+    }
+
+    // Change player's material color to another color with some delay
     IEnumerator TakeDamege(Color color)
     {
         playerMat.material.SetColor("_BaseColor", color);
 
         yield return new WaitForSeconds(0.1f);
 
-        playerMat.material.SetColor("_BaseColor", Color.gray);
+        playerMat.material.SetColor("_BaseColor", playerColor);
     }
 }

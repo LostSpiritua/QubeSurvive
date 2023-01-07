@@ -8,11 +8,14 @@ public class BarSlider_Armor : BarSlider
     {
         HUDUpdate();
     }
+
+    // Initialize armor max value
     public override void HUDInitialize()
     {
         SetMaxValue(player.playerArmor);
     }
 
+    // Update armor value
     public override void HUDUpdate()
     {
         SetValue(player.playerArmor);

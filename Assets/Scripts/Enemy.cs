@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float attackPower = 10.0f; // Enemy's attack power
     public float returnPower = 7.0f; // Power with enemy return from player collision
     public float pointsForKill = 1f; 
-    public Gradient healtGradient;
+    public Gradient healthGradient;
     
     private GameObject playerObject;
     private Player player;
@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         ChangeColorByHealth(health);
     }
 
+    // Reset enemy's to default value after spawning from pool
     private void OnEnable()
     {
         health = healthStart;
@@ -112,10 +113,11 @@ public class Enemy : MonoBehaviour
     {
         var mat = enemyMat.material;
         float normalizedHealth = health / healthStart;
-        var color = healtGradient.Evaluate(normalizedHealth);
+        var color = healthGradient.Evaluate(normalizedHealth);
         mat.SetColor("_BaseColor", color);
     }
 
+    // Add some points to whole score value
     public virtual void ScoreUp (float points)
     {
         GameManager.Instance.scores += points;
@@ -123,6 +125,7 @@ public class Enemy : MonoBehaviour
         HUD.ScoresUpdate(p);
     }
 
+    // Add 1 kill to GM kills counter
     public virtual void KillsUp ()
     {
         GameManager.Instance.totalKills += 1;

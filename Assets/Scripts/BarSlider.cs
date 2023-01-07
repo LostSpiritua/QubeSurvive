@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public abstract class BarSlider : MonoBehaviour
 {
-    public Gradient gradient;
-    public Image fill;
+    public Gradient gradient; // Gradient of color
+    public Image fill; // Fill image
 
     protected Player player;
     protected Slider slider;
