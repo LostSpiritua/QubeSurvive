@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         // Direction in World relativly mouse position
         Vector3 lookDirection = new Vector3(mousePos.x, gameObject.transform.position.y, mousePos.z);
 
-        transform.LookAt(lookDirection);
+        gameObject.transform.GetChild(0).transform.LookAt(lookDirection);
     }
 
     // Player controll by WASD or Arrows

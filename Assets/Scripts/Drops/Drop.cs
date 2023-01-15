@@ -24,7 +24,7 @@ public abstract class Drop : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
+        transform.GetChild(0).transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
     }
 
     // Time of life bonus after spawning
@@ -45,7 +45,7 @@ public abstract class Drop : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             corutineWork = true;                                        // Stop life time countdown
-            var Player = other.transform.parent.transform;             
+            var Player = other.transform.parent.transform.parent.transform;             
             NewParentForVFX(Player);                                    // Move drop VFX to Player position
 
             StartCoroutine(DropBonusTimer(workTimer));                  // Start drops bonus timer

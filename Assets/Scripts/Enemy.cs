@@ -76,6 +76,23 @@ public class Enemy : MonoBehaviour
         DisableOnLowHealh();
     }
 
+    // Damage that enemy by explosion
+    public virtual void DamageByExplosion(GameObject explosion)
+    {
+
+        if (explosion.GetComponentInParent<Drop_Bomb>() != null)
+        {
+            var dropExplosion = explosion.GetComponentInParent<Drop_Bomb>();
+            health -= dropExplosion.explosionDamage;
+            ChangeColorByHealth(health);
+            DisableOnLowHealh();
+        }
+        else
+        {
+            Debug.LogWarning("Drop_Bomb Script doesn't attach to GameObject");
+        }
+    }
+
     // Some activity at collision
     public virtual void OnCollisionEnter(Collision collision)
     {
@@ -92,10 +109,15 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-
             DamageByWeapon();
         }
-    }
+
+        if (other.gameObject.CompareTag("Explosion"))
+        {
+            DamageByExplosion(other);
+        }
+
+     }
 
     // Disable enemy game object when healt low than 0
     public virtual void DisableOnLowHealh()
