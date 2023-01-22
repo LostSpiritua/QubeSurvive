@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7932792378742372810}
   - component: {fileID: 7932792378742372809}
   - component: {fileID: 8587005410869469095}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DropBomb
   m_TagString: Drop
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 8115929158197977071}
   - {fileID: 796272607}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &7932792378742372809
 SphereCollider:
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6291c1868a8b25c4eb95e806429f398a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 100
+  lifeTime: 15
   workTimer: 30
   rotationSpeed: 270
   effectVFX: {fileID: 796272609}
@@ -156,6 +156,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bce6ee9ae272c3542bc6fd829a1cb79d, type: 2}
+    - target: {fileID: -5568371526223589888, guid: 0b1405f43adf0b2419ab93abec259dff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -3551022047851745207, guid: 0b1405f43adf0b2419ab93abec259dff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -211,6 +216,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b1405f43adf0b2419ab93abec259dff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923409049141343097, guid: 0b1405f43adf0b2419ab93abec259dff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: 0b1405f43adf0b2419ab93abec259dff,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -235,6 +250,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7932792378742372810}
     m_Modifications:
+    - target: {fileID: 450319351115533510, guid: ef7e0003b42d6c14da38177f29476b8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155170390800847696, guid: ef7e0003b42d6c14da38177f29476b8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8697025171595632316, guid: ef7e0003b42d6c14da38177f29476b8f,
         type: 3}
       propertyPath: m_RootOrder
@@ -294,6 +319,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ExplosionVFX_once
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025171595632317, guid: ef7e0003b42d6c14da38177f29476b8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025172042785731, guid: ef7e0003b42d6c14da38177f29476b8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025172778410485, guid: ef7e0003b42d6c14da38177f29476b8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025173155499501, guid: ef7e0003b42d6c14da38177f29476b8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -7,9 +7,9 @@ public class CameraMove : MonoBehaviour
 {
     public GameObject player;
 
-    private Player playerScrpt; // Access to Player variables
-    private readonly float panBorderThickness = 0.17f; // Space in pixels between screen edge and border when camera start moving by player
-    private readonly float cameraStopPos = 15.5f; // Point on map at the bound when camera should stop moving
+    private Player playerScrpt;                             // Access to Player variables
+    private readonly float panBorderThickness = 0.17f;      // Space in pixels between screen edge and border when camera start moving by player
+    private readonly float cameraStopPos = 15.5f;           // Point on map at the bound when camera should stop moving
 
     private void Start()
     {

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [System.Serializable]
-    public class Pool
-    {
-        public string tag;
-        public GameObject prefab;
-        public int size;
-    }
-
-    public List<Pool> pools;
-    public Dictionary<string, Queue<GameObject>> poolDictionary;
+    [System.Serializable]                                                            
+    public class Pool                                                                // New Class for Pool data 
+    {                                                                                // 
+        public string tag;                                                           // Object tag
+        public GameObject prefab;                                                    // Object prefab
+        public int size;                                                             // Number of prefab with tag save to pool
+    }                                                                                // 
+                                                                                     // 
+    public List<Pool> pools;                                                         // List of objects pool
+    public Dictionary<string, Queue<GameObject>> poolDictionary;                     // Dictionary for saving queues of objects in pool
 
     // Start is called before the first frame update
     void Start()

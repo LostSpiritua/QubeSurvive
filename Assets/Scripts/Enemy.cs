@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float healthStart = 100; // Enemy's health    
-    public float speed = 1.5f; // Enemy's move speed
-    public float attackPower = 10.0f; // Enemy's attack power
-    public float returnPower = 7.0f; // Power with enemy return from player collision
-    public float pointsForKill = 1f; 
-    public Gradient healthGradient;
-    
-    private GameObject playerObject;
-    private Player player;
-    private Rigidbody enemyRB;
-    private float health;
-    private Renderer enemyMat;
-    private HudUpdate HUD;
+    public float healthStart = 100;                                         // Enemy's health    
+    public float speed = 1.5f;                                              // Enemy's move speed
+    public float attackPower = 10.0f;                                       // Enemy's attack power
+    public float returnPower = 7.0f;                                        // Power with enemy return from player collision
+    public float pointsForKill = 1f;                                        // Points price for enemy kill
+    public Gradient healthGradient;                                         // Color gradient for enemy health
+                                                                          
+    private GameObject playerObject;                                        // pointer to player
+    private Player player;                                                  // 
+    private Rigidbody enemyRB;                                              // 
+    private float health;                                                   // Current value of Health
+    private Renderer enemyMat;                                              // 
+    private HudUpdate HUD;                                                  // 
       
 
     // Start is called before the first frame update

@@ -8,8 +8,15 @@ public class Drop_Armor : Drop
 
     public override void Start()
     {
-        base.Start();
         player = GameObject.Find("Player").GetComponent<Player>();
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (!player.armorBonus)
+        {
+        base.OnTriggerEnter(other);
+        }
     }
 
     // Freez armor value

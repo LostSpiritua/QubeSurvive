@@ -6,20 +6,19 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private int lives = 2; // Player live value
-
-    
-    public static GameManager Instance; // Public variable for GM
-    public int Lives // Public variable with paramerts for player's lives
+    private int lives = 2;                    // Player live value
+        
+    public static GameManager Instance;       // Public variable for GM
+    public int Lives                          // Public variable with paramerts for player's lives
     {
         get { return lives; }
         set { lives = value < 3 ? value : 2; }
     }
-    public float gameSpeed; // Game spedd
-    public float gameTime = 0f; // Time from gamer start
-    public float scores; // Scores
-    public int totalKills; // Total kills counter
-    public bool gameOver = false; // Check for Game Over
+    public float gameSpeed;                   // Game spedd
+    public float gameTime = 0f;               // Time from gamer start
+    public float scores;                      // Scores
+    public int totalKills;                    // Total kills counter
+    public bool gameOver = false;             // Check for Game Over
 
         
     // Start is called before the first frame update

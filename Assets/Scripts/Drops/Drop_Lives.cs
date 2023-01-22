@@ -15,17 +15,12 @@ public class Drop_Lives : Drop
             {
                 base.OnTriggerEnter(other);
             }
-            else
-            {
-                gameObject.SetActive(false);
-            }
-        } 
+        }  
     }
-
+    
     public override void Start()
     {
         HUD = GameObject.Find("MainHUD").GetComponent<HudUpdate>();
-        base.Start();
     }
 
     // Add 1 live and Update HUD

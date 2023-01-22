@@ -8,12 +8,13 @@ using UnityEngine;
 
 public class HudUpdate : MonoBehaviour
 {
-    public TextMeshProUGUI scores; // Text at HUD canvas with scores
-    public TextMeshProUGUI totalKills; // Text at HUD canvas with total kills value
-    public TextMeshProUGUI timer; // Text at HUD canvas with time from game start
-    public BarSlider healthBar; // Health bar slider 
-    public BarSlider armorBar; // Armor bar slider
-    public List<GameObject> livesImage; // List of images fills of lives indicators
+    public TextMeshProUGUI scores;                          // Text at HUD canvas with scores
+    public TextMeshProUGUI totalKills;                      // Text at HUD canvas with total kills value
+    public TextMeshProUGUI timer;                           // Text at HUD canvas with time from game start
+    public BarSlider healthBar;                             // Health bar slider 
+    public BarSlider armorBar;                              // Armor bar slider
+    public List<GameObject> livesImage;                     // List of images fills of lives indicators
+    public List<GameObject> weaponsUI;                      // Weapons List for UI
     
     private void Start()
     {
@@ -72,4 +73,15 @@ public class HudUpdate : MonoBehaviour
 
         }
     }
+
+    // Update current active weapon at UI
+    public void UpdateActiveWeapon(int weaponID)
+    {
+        foreach (GameObject Weapon in weaponsUI)
+        {
+            Weapon.SetActive(false);
+        }
+        weaponsUI[weaponID].SetActive(true);
+    }
+
 }

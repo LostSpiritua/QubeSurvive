@@ -10,7 +10,6 @@ public class Drop_Heal : Drop
     
     public override void Start()
     {
-        base.Start();
         player = GameObject.Find("Player").GetComponent<Player>();
     }
     // Heal player

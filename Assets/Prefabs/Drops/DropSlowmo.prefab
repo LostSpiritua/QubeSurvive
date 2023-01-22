@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5184173568340697599}
   - component: {fileID: 1150975597436908443}
   - component: {fileID: 7418720471807305358}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SpawnTimerVFX_loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4839,7 +4839,7 @@ GameObject:
   - component: {fileID: 4528642334390639468}
   - component: {fileID: 4528642334390639471}
   - component: {fileID: 7869245543955988787}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DropSlowmo
   m_TagString: Drop
   m_Icon: {fileID: 0}
@@ -4861,7 +4861,7 @@ Transform:
   - {fileID: 2337256090628436474}
   - {fileID: 5184173568340697599}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4528642334390639471
 SphereCollider:
@@ -4896,7 +4896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ee8b453f1506a488553ad8782b4602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 100
+  lifeTime: 15
   workTimer: 15
   rotationSpeed: 270
   effectVFX: {fileID: 1150975597436908443}
@@ -4979,6 +4979,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7108526074593422279, guid: f8575571a66be5047ae7f58810e22db2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: f8575571a66be5047ae7f58810e22db2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -3645442340189716319, guid: f8575571a66be5047ae7f58810e22db2,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -5028,6 +5038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clock
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f8575571a66be5047ae7f58810e22db2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7144888972937182979, guid: f8575571a66be5047ae7f58810e22db2,
         type: 3}

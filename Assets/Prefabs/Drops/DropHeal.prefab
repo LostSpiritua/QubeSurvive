@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 122871493}
   - component: {fileID: 122871491}
   - component: {fileID: 122871492}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealLittleVFX_once
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4841,7 +4841,7 @@ GameObject:
   - component: {fileID: 760627608}
   - component: {fileID: 760627610}
   - component: {fileID: 760627609}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealBigVFX_once
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9669,7 +9669,7 @@ GameObject:
   - component: {fileID: 1818850957826548656}
   - component: {fileID: 1818850957826548659}
   - component: {fileID: 1733360448}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DropHeal
   m_TagString: Drop
   m_Icon: {fileID: 0}
@@ -9691,7 +9691,7 @@ Transform:
   - {fileID: 2213345710135757723}
   - {fileID: 122871493}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1818850957826548659
 SphereCollider:
@@ -9726,7 +9726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0948908a7adf645b84964d94c49f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 100
+  lifeTime: 15
   workTimer: 3
   rotationSpeed: 270
   effectVFX: {fileID: 122871491}
@@ -9809,6 +9809,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7870915111518396395, guid: 4eacdb8d90b5e7a4c82dacd69f86559e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 4eacdb8d90b5e7a4c82dacd69f86559e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: 4eacdb8d90b5e7a4c82dacd69f86559e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -9823,6 +9833,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4eacdb8d90b5e7a4c82dacd69f86559e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4095486214214180366, guid: 4eacdb8d90b5e7a4c82dacd69f86559e,
         type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 722856095}
   - component: {fileID: 722856097}
   - component: {fileID: 722856096}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LivesBigVFX_once
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4839,7 +4839,7 @@ GameObject:
   - component: {fileID: 1256287561}
   - component: {fileID: 1256287559}
   - component: {fileID: 1256287560}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LivesLittleVFX_once
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9669,7 +9669,7 @@ GameObject:
   - component: {fileID: 4043071438565347762}
   - component: {fileID: 4043071438565347763}
   - component: {fileID: 1050248831}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DropLives
   m_TagString: Drop
   m_Icon: {fileID: 0}
@@ -9691,7 +9691,7 @@ Transform:
   - {fileID: 4580540633795894817}
   - {fileID: 1256287561}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4043071438565347763
 SphereCollider:
@@ -9726,7 +9726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ad49047d387141964a71f8a4ebd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 100
+  lifeTime: 15
   workTimer: 3
   rotationSpeed: 270
   effectVFX: {fileID: 1256287559}
@@ -9813,6 +9813,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 471cac8e39f2a4542b161d3e28771d4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 471cac8e39f2a4542b161d3e28771d4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 471cac8e39f2a4542b161d3e28771d4a,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -9842,6 +9852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Heart
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 471cac8e39f2a4542b161d3e28771d4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: 471cac8e39f2a4542b161d3e28771d4a,
         type: 3}
