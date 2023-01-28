@@ -50,23 +50,26 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         // Debug.Log(bonusVar + " " + rareVar + " " + weaponVar);
-
-        if (GM.totalKills >= bonusVar)
+        if (readDone)
         {
-            bonusVar = GM.totalKills + bonusSpawnRate;
-            SpawnRandomBonusAtRandomScreenPos();
-        }
+            if (GM.totalKills >= bonusVar)
+            {
+                bonusVar = GM.totalKills + bonusSpawnRate;
+                SpawnRandomBonusAtRandomScreenPos();
+            }
 
-        if (GM.totalKills >= rareVar)
-        {
-            rareVar = GM.totalKills + rareBonusSpawnRate;
-            SpawnRandomRareBonusAtRandomScreenPos();
-        }
+            if (GM.totalKills >= rareVar)
+            {
+                rareVar = GM.totalKills + rareBonusSpawnRate;
+                SpawnRandomRareBonusAtRandomScreenPos();
+            }
 
-        if (GM.totalKills >= weaponVar)
-        {
-            weaponVar = GM.totalKills + weaponSpawntRate;
-            SpawnWeaponAtRandomScreenPos();
+            if (GM.totalKills >= weaponVar)
+            {
+                weaponVar = GM.totalKills + weaponSpawntRate;
+                SpawnWeaponAtRandomScreenPos();
+            }
+
         }
     }
 
@@ -76,7 +79,7 @@ public class SpawnManager : MonoBehaviour
         int randomEnemy = UnityEngine.Random.Range(0, enemySpawnList.Count);
         float randomXpos = UnityEngine.Random.Range(-mapBounds, mapBounds);
         float randomYpos = UnityEngine.Random.Range(-mapBounds, mapBounds);
-        Vector3 randPos = new Vector3(randomXpos, 0.3f, randomYpos);
+        Vector3 randPos = new Vector3(randomXpos, 0.1f, randomYpos);
 
         pool.SpawnFromPool(enemySpawnList[randomEnemy], randPos, Quaternion.identity);
 

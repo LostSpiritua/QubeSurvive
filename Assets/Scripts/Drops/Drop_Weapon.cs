@@ -24,10 +24,11 @@ public class Drop_Weapon : Drop
     public override void OnEnable()
     {
         corutineWork = false;
-        
+        goUp = false; 
+
         base.OnEnable();
 
-        goUp = false;                                           
+                                                  
         WeaponIndex = Random.Range(0, weaponsDrop.Count);   // Set random weapon from list
 
         foreach (GameObject weapon in weaponsDrop)          // Deactivate all weapon except from random 
@@ -48,6 +49,7 @@ public class Drop_Weapon : Drop
 
     public override void OnTriggerEnter(Collider other)
     {
+       
         if (other.gameObject.CompareTag("Player"))
         {
             corutineWork = true;                                        // Stop life time countdown

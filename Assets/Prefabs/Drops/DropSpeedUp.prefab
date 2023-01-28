@@ -9668,6 +9668,7 @@ GameObject:
   - component: {fileID: 6323830161155513105}
   - component: {fileID: 6323830161155513106}
   - component: {fileID: 1705518457}
+  - component: {fileID: 487263294}
   m_Layer: 5
   m_Name: DropSpeedUp
   m_TagString: Drop
@@ -9730,6 +9731,33 @@ MonoBehaviour:
   rotationSpeed: 270
   effectVFX: {fileID: 1369410013}
   enchanceSpeed: 4
+--- !u!54 &487263294
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323830161155513111}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 10
+  m_AngularDrag: 10
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &5692296259098454487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9891,8 +9919,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 74372e2d17928084c9095f2e1317b49f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1724212460}
   m_SourcePrefab: {fileID: 100100000, guid: 74372e2d17928084c9095f2e1317b49f, type: 3}
+--- !u!1 &4773376454200398982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 74372e2d17928084c9095f2e1317b49f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5692296259098454487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1724212460
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773376454200398982}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 319
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &5293313084950335036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74372e2d17928084c9095f2e1317b49f,

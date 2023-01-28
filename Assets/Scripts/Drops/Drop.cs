@@ -43,9 +43,19 @@ public abstract class Drop : MonoBehaviour
         }
     }
 
+    public virtual void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Walls"))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, (transform.position.z + 0.01f));
+        }
+    }
+
+
     // Some action when player triger drops collider
     public virtual void OnTriggerEnter(Collider other)
     {
+        
        
         if (other.gameObject.CompareTag("Player"))
         { 

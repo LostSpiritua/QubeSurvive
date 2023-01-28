@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class Enemy : MonoBehaviour
     private float health;                                                   // Current value of Health
     private Renderer enemyMat;                                              // 
     private HudUpdate HUD;                                                  // 
-      
+    private NavMeshAgent enemyAI;  
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class Enemy : MonoBehaviour
         enemyRB = GetComponent<Rigidbody>();
         enemyMat = gameObject.GetComponentInChildren<Renderer>();
         HUD = GameObject.Find("MainHUD").GetComponent<HudUpdate>();
+        enemyAI = GetComponent<NavMeshAgent>();
 
         ChangeColorByHealth(health);
     }
@@ -50,12 +53,18 @@ public class Enemy : MonoBehaviour
     // Enemy follow for the player
     public virtual void MoveToPlayer()
     {
+      //  if (playerObject.activeSelf)
+      //  {
+      //
+      //      transform.LookAt(playerObject.transform.position);
+      //
+      //      transform.Translate(Vector3.forward * Time.deltaTime * speed);
+      //  }
+
         if (playerObject.activeSelf)
         {
-
-            transform.LookAt(playerObject.transform.position);
-
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            enemyAI.speed = speed;
+            enemyAI.destination = playerObject.transform.position;
         }
     }   
 

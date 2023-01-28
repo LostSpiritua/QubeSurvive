@@ -74,10 +74,15 @@ public class Player : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-
+        float delay = 1f / playerSpeed;
         Vector3 inputDirection = new Vector3(inputX, 0f, inputY).normalized;
 
         gameObject.transform.Translate(inputDirection * playerSpeed * Time.deltaTime, Space.World);
+
+        if (inputX != 0f || inputY != 0f) 
+        {
+            SoundManager.Instance.Play("step", gameObject.transform.position, 0, delay); 
+        }
     }
 
 

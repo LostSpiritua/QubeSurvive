@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7932792378742372810}
   - component: {fileID: 7932792378742372809}
   - component: {fileID: 8587005410869469095}
+  - component: {fileID: 2108470652}
   m_Layer: 5
   m_Name: DropBomb
   m_TagString: Drop
@@ -73,6 +74,33 @@ MonoBehaviour:
   rotationSpeed: 270
   effectVFX: {fileID: 796272609}
   explosionDamage: 55
+--- !u!54 &2108470652
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932792378742372812}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 10
+  m_AngularDrag: 10
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &8587005410313861124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,7 +262,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b1405f43adf0b2419ab93abec259dff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1872103075}
   m_SourcePrefab: {fileID: 100100000, guid: 0b1405f43adf0b2419ab93abec259dff, type: 3}
 --- !u!4 &8115929158197977071 stripped
 Transform:
@@ -242,6 +274,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8587005410313861124}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8929022042486883669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b1405f43adf0b2419ab93abec259dff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8587005410313861124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1872103075
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929022042486883669}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 192
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 319
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8697025172288354659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,6 +318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025171595632258, guid: ef7e0003b42d6c14da38177f29476b8f,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8697025171595632316, guid: ef7e0003b42d6c14da38177f29476b8f,
         type: 3}
