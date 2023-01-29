@@ -276,7 +276,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &30614269
 MonoBehaviour:
@@ -620,7 +620,7 @@ MonoBehaviour:
   spawnSound: shoot
   timeS: 0
   delayS: 0
-  dissapearSound: explosion
+  dissapearSound: bullet
   timeD: 0
   delayD: 0
 --- !u!1 &194173496
@@ -1734,13 +1734,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437127608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1174535719}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &437127610
 MonoBehaviour:
@@ -1758,28 +1758,165 @@ MonoBehaviour:
   volumeMusic: 1
   sound:
   - name: shoot
+    tagename: shoot
     clip: {fileID: 8300000, guid: 11c8fcce7a8f2854691db817e2c83791, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: explosion
+  - name: bullet
+    tagename: shoot
     clip: {fileID: 8300000, guid: d3a71344389f8aa4a8adcfcc92be174d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: electric
-    clip: {fileID: 8300000, guid: a25d04a8554abd244b93194311c6d6b3, type: 3}
+    tagename: electric
+    clip: {fileID: 8300000, guid: cca01314c08ee2547a5b74e4cc57379d, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 0.81
     loop: 1
     source: {fileID: 0}
-  - name: step
-    clip: {fileID: 8300000, guid: 2020319f2abc961469305b0a548bd07c, type: 3}
+  - name: bigexplosion
+    tagename: bigexplosion
+    clip: {fileID: 8300000, guid: 264b1937d6f07db42b268deedcd51424, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: rocketlaunch
+    tagename: shoot
+    clip: {fileID: 8300000, guid: 0f865581c32adb745b7bd2122d1705cd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: explosion
+    tagename: explosion
+    clip: {fileID: 8300000, guid: 81e14a8e97b481b48a78991ab55d61b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step1
+    tagename: step
+    clip: {fileID: 8300000, guid: 679e663390df6ef4ca0fefde1f310b1e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step2
+    tagename: step
+    clip: {fileID: 8300000, guid: 067dd1be04124e246a3daabdd62165fe, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step3
+    tagename: step
+    clip: {fileID: 8300000, guid: d386dae41d6573b4f97edc6da9b0c7e9, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step4
+    tagename: step
+    clip: {fileID: 8300000, guid: 53a9193f36aec7d46a0f0ebd9c0c2211, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step5
+    tagename: step
+    clip: {fileID: 8300000, guid: d6240c560c339864b907847e2f8d35ad, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step6
+    tagename: step
+    clip: {fileID: 8300000, guid: ceda3a305b458b640b88ef3def5c9702, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: punch
+    tagename: punch
+    clip: {fileID: 8300000, guid: fd19d49dbaf173247b6665141ec4ab10, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: block
+    tagename: punch
+    clip: {fileID: 8300000, guid: 9c9c08cf76df43d478b6ea6e9b744efe, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: impact
+    tagename: impact
+    clip: {fileID: 8300000, guid: 34882670cc928d54aa26601ce1480673, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: lives
+    tagename: lives
+    clip: {fileID: 8300000, guid: 01b508c209f1bbd4fb7c1bafbc6ef6cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: armor
+    tagename: armor
+    clip: {fileID: 8300000, guid: e0b902472b7ed2c42be4ac80cd49121c, type: 3}
+    volume: 1
+    pitch: 1.21
+    loop: 0
+    source: {fileID: 0}
+  - name: heal
+    tagename: heal
+    clip: {fileID: 8300000, guid: 8ebcfdc0f4c9a5340aa94720d75efabb, type: 3}
+    volume: 1
+    pitch: 1.21
+    loop: 0
+    source: {fileID: 0}
+  - name: speed
+    tagename: speed
+    clip: {fileID: 8300000, guid: 22c2cd19131d43c479b70bb89b0f622d, type: 3}
+    volume: 1
+    pitch: 1.21
+    loop: 0
+    source: {fileID: 0}
+  - name: weapon
+    tagename: weapon
+    clip: {fileID: 8300000, guid: 470524c7439f79b4781a84582a53113e, type: 3}
+    volume: 1
+    pitch: 1.21
+    loop: 0
+    source: {fileID: 0}
+  - name: slowin
+    tagename: slowin
+    clip: {fileID: 8300000, guid: 039a0878c3a6af948a6632a1d6250d7b, type: 3}
+    volume: 1
+    pitch: 1.21
+    loop: 0
+    source: {fileID: 0}
+  - name: slowout
+    tagename: slowout
+    clip: {fileID: 8300000, guid: 01ac0718c1cbac143969eb635f7b2c6f, type: 3}
+    volume: 1
+    pitch: 1.21
+    loop: 0
+    source: {fileID: 0}
+  - name: tick
+    tagename: tick
+    clip: {fileID: 8300000, guid: 920cdb2671ad25f40be4443fba7d34c3, type: 3}
+    volume: 1
+    pitch: 1.21
+    loop: 1
     source: {fileID: 0}
 --- !u!82 &437127611
 AudioSource:
@@ -3265,6 +3402,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721704672}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &735359528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6502238540353034617, guid: 941576acf53482948bad03cf29694e3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1147823732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &735359532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735359528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d95a43e261e242459823e52a444a35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSound: rocketlaunch
+  timeS: 0
+  delayS: 0
+  dissapearSound: explosion
+  timeD: 0
+  delayD: 0
 --- !u!1 &794031231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,6 +4407,10 @@ PrefabInstance:
       propertyPath: TriggerModule.enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1469915288, guid: 941576acf53482948bad03cf29694e3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7682958248276266011, guid: 941576acf53482948bad03cf29694e3f,
         type: 3}
       propertyPath: m_Name
@@ -4309,7 +4474,22 @@ PrefabInstance:
     - target: {fileID: 7682958248276266014, guid: 941576acf53482948bad03cf29694e3f,
         type: 3}
       propertyPath: startWep
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025173345516023, guid: 941576acf53482948bad03cf29694e3f,
+        type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025173345516023, guid: 941576acf53482948bad03cf29694e3f,
+        type: 3}
+      propertyPath: ShapeModule.m_Position.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025173345516023, guid: 941576acf53482948bad03cf29694e3f,
+        type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2046190949, guid: 941576acf53482948bad03cf29694e3f, type: 3}
@@ -4328,6 +4508,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 169209075}
+    - targetCorrespondingSourceObject: {fileID: 6502238540353034617, guid: 941576acf53482948bad03cf29694e3f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 735359532}
     - targetCorrespondingSourceObject: {fileID: 2046190947, guid: 941576acf53482948bad03cf29694e3f,
         type: 3}
       insertIndex: -1
@@ -4811,9 +4995,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 194173498}
-  - {fileID: 1967460141}
   - {fileID: 1479951487}
   - {fileID: 547801496}
+  - {fileID: 1967460141}
+  - {fileID: 437127609}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8284,14 +8469,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
+  - tag: Sound
+    prefab: {fileID: 1430866304834175423, guid: ffb1ea99089d39d4db5971e0770c9ba9,
+      type: 3}
+    size: 100
   - tag: Enemy
     prefab: {fileID: 7076433063187341873, guid: d250b066f52a21347b1cb24b2cf2e97d,
       type: 3}
-    size: 50
+    size: 100
   - tag: Enemy2
     prefab: {fileID: 7076433063187341873, guid: d250b066f52a21347b1cb24b2cf2e97d,
       type: 3}
-    size: 50
+    size: 100
   - tag: RareArmor
     prefab: {fileID: 499715423421018977, guid: 54943cf19ff954f4798b289a02120335, type: 3}
     size: 5
@@ -8319,10 +8508,6 @@ MonoBehaviour:
     prefab: {fileID: 3400424276796810221, guid: 516310e6137d6e5468bbe9be656bf5ce,
       type: 3}
     size: 5
-  - tag: sound
-    prefab: {fileID: 1430866304834175423, guid: ffb1ea99089d39d4db5971e0770c9ba9,
-      type: 3}
-    size: 15
 --- !u!4 &1967460141
 Transform:
   m_ObjectHideFlags: 0
@@ -8721,7 +8906,7 @@ PrefabInstance:
     - target: {fileID: 1818850957826548656, guid: 1945b26cb566f13408e3c9cef59d4b83,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1818850957826548656, guid: 1945b26cb566f13408e3c9cef59d4b83,
         type: 3}
@@ -8777,11 +8962,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DropHeal
-      objectReference: {fileID: 0}
-    - target: {fileID: 1818850957826548662, guid: 1945b26cb566f13408e3c9cef59d4b83,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8987,15 +9167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropArmor
       objectReference: {fileID: 0}
-    - target: {fileID: 499715423421018977, guid: 54943cf19ff954f4798b289a02120335,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 499715423421018983, guid: 54943cf19ff954f4798b289a02120335,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 499715423421018983, guid: 54943cf19ff954f4798b289a02120335,
         type: 3}
@@ -9065,15 +9240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropSlowmo
       objectReference: {fileID: 0}
-    - target: {fileID: 4528642334390639466, guid: 85ce9edca811f8c489c6e9fa749f80f5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4528642334390639468, guid: 85ce9edca811f8c489c6e9fa749f80f5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4528642334390639468, guid: 85ce9edca811f8c489c6e9fa749f80f5,
         type: 3}
@@ -9219,7 +9389,7 @@ PrefabInstance:
     - target: {fileID: 3400424276796810210, guid: 516310e6137d6e5468bbe9be656bf5ce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3400424276796810210, guid: 516310e6137d6e5468bbe9be656bf5ce,
         type: 3}
@@ -9276,11 +9446,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropWeapons
       objectReference: {fileID: 0}
-    - target: {fileID: 3400424276796810221, guid: 516310e6137d6e5468bbe9be656bf5ce,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9299,15 +9464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropLives
       objectReference: {fileID: 0}
-    - target: {fileID: 4043071438565347760, guid: d5738579b1f312b49a74efe6091664e9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4043071438565347762, guid: d5738579b1f312b49a74efe6091664e9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4043071438565347762, guid: d5738579b1f312b49a74efe6091664e9,
         type: 3}
@@ -9375,7 +9535,7 @@ PrefabInstance:
     - target: {fileID: 6323830161155513105, guid: 02ff2035eea4e16459d67910deb8ea5c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6323830161155513105, guid: 02ff2035eea4e16459d67910deb8ea5c,
         type: 3}
@@ -9431,11 +9591,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DropSpeedUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6323830161155513111, guid: 02ff2035eea4e16459d67910deb8ea5c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9610,7 +9765,7 @@ PrefabInstance:
     - target: {fileID: 7932792378742372810, guid: 1bd875ce937a538499adcf45e58d8069,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7932792378742372810, guid: 1bd875ce937a538499adcf45e58d8069,
         type: 3}
@@ -9666,11 +9821,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DropBomb
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932792378742372812, guid: 1bd875ce937a538499adcf45e58d8069,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

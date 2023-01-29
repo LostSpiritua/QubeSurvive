@@ -9731,6 +9731,7 @@ MonoBehaviour:
   workTimer: 3
   rotationSpeed: 270
   effectVFX: {fileID: 122871491}
+  soundName: heal
   healPower: 50
 --- !u!54 &1439764192
 Rigidbody:

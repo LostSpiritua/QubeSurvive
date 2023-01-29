@@ -7,6 +7,7 @@ public class Sound
 {
    
         public string name;
+        public string tagename;
 
         public AudioClip clip;
 

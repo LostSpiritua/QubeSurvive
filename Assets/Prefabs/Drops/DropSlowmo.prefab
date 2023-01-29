@@ -4901,7 +4901,10 @@ MonoBehaviour:
   workTimer: 15
   rotationSpeed: 270
   effectVFX: {fileID: 1150975597436908443}
+  soundName: slowin
   slowmoPower: 0.5
+  soundTick: tick
+  slowOutSound: slowout
 --- !u!54 &1459396356
 Rigidbody:
   m_ObjectHideFlags: 0

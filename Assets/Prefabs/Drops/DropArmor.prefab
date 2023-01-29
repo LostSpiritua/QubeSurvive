@@ -14617,6 +14617,7 @@ MonoBehaviour:
   workTimer: 15
   rotationSpeed: 270
   effectVFX: {fileID: 1743820666}
+  soundName: armor
 --- !u!54 &1744255894
 Rigidbody:
   m_ObjectHideFlags: 0

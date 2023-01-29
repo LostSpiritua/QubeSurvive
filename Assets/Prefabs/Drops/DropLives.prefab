@@ -9731,6 +9731,7 @@ MonoBehaviour:
   workTimer: 3
   rotationSpeed: 270
   effectVFX: {fileID: 1256287559}
+  soundName: lives
 --- !u!54 &613029621
 Rigidbody:
   m_ObjectHideFlags: 0

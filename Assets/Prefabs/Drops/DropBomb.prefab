@@ -73,6 +73,7 @@ MonoBehaviour:
   workTimer: 30
   rotationSpeed: 270
   effectVFX: {fileID: 796272609}
+  soundName: bigexplosion
   explosionDamage: 55
 --- !u!54 &2108470652
 Rigidbody:

@@ -74,14 +74,13 @@ public class Player : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-        float delay = 1f / playerSpeed;
-        Vector3 inputDirection = new Vector3(inputX, 0f, inputY).normalized;
+                Vector3 inputDirection = new Vector3(inputX, 0f, inputY).normalized;
 
         gameObject.transform.Translate(inputDirection * playerSpeed * Time.deltaTime, Space.World);
 
         if (inputX != 0f || inputY != 0f) 
         {
-            SoundManager.Instance.Play("step", gameObject.transform.position, 0, delay); 
+            SoundManager.Instance.StepSound(playerSpeed, 0.4f); 
         }
     }
 
@@ -106,9 +105,13 @@ public class Player : MonoBehaviour
             {
                 playerHealth -= attack;
                 StartCoroutine(TakeDamege(damageColor));
+                SoundManager.Instance.Play("punch", transform.position, 0f, 0.1f);
             }
-            else StartCoroutine(TakeDamege(Color.white));
-
+            else
+            {
+                SoundManager.Instance.Play("block", transform.position, 0f, 0.5f);
+                StartCoroutine(TakeDamege(Color.white));
+            }
             playerArmor -= attackPower;
 
             if (playerArmor < 0)

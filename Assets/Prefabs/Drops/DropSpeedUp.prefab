@@ -9730,6 +9730,7 @@ MonoBehaviour:
   workTimer: 15
   rotationSpeed: 270
   effectVFX: {fileID: 1369410013}
+  soundName: speed
   enchanceSpeed: 4
 --- !u!54 &487263294
 Rigidbody:

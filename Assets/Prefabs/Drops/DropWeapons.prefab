@@ -75,6 +75,7 @@ MonoBehaviour:
   workTimer: 10
   rotationSpeed: 270
   effectVFX: {fileID: 0}
+  soundName: weapon
   weaponsDrop:
   - {fileID: 1036188982319380453}
   - {fileID: 5376913157253884377}

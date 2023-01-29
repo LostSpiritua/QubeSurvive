@@ -11,6 +11,7 @@ public abstract class Drop : MonoBehaviour
     public float workTimer = 1f;                   // Default time for drop's effect
     public float rotationSpeed = 270.0f;           // Drop's animation speed
     public ParticleSystem effectVFX;               // Drop's VFX after activation
+    public string soundName;
 
     protected bool corutineWork = false;           // Check to not deactivate drop after life time over
 
@@ -58,7 +59,8 @@ public abstract class Drop : MonoBehaviour
         
        
         if (other.gameObject.CompareTag("Player"))
-        { 
+        {
+            SoundManager.Instance.Play(soundName, transform.position, 0, 0);
             corutineWork = true;                                            // Stop life time countdown
             var Player = other.transform.parent.transform.parent.transform;             
             NewParentForVFX(Player);                                        // Move drop VFX to Player position

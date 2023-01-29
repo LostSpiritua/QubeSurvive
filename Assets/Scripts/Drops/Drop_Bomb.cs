@@ -20,6 +20,7 @@ public class Drop_Bomb : Drop
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            SoundManager.Instance.Play(soundName, transform.position, 0, 0);
             corutineWork = true;                                        // Stop life time countdown
             
             StartCoroutine(DropBonusTimer(workTimer));                  // Start drops bonus timer

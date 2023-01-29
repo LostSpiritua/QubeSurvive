@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
+    public static ObjectPooler Instance;
+
     [System.Serializable]                                                            
     public class Pool                                                                // New Class for Pool data 
     {                                                                                // 
@@ -15,8 +17,11 @@ public class ObjectPooler : MonoBehaviour
     public List<Pool> pools;                                                         // List of objects pool
     public Dictionary<string, Queue<GameObject>> poolDictionary;                     // Dictionary for saving queues of objects in pool
 
+
+    
+    
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 

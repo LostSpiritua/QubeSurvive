@@ -60,12 +60,17 @@ public class Enemy : MonoBehaviour
       //
       //      transform.Translate(Vector3.forward * Time.deltaTime * speed);
       //  }
-
-        if (playerObject.activeSelf)
+      if (player != null) 
         {
-            enemyAI.speed = speed;
-            enemyAI.destination = playerObject.transform.position;
+            if (playerObject.activeSelf)
+            {
+                enemyAI.speed = speed;
+                enemyAI.destination = playerObject.transform.position;
+            }
+
         }
+
+
     }   
 
     // Damage that enemy recieve by collision with player
@@ -119,11 +124,13 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Projectile"))
         {
             DamageByWeapon();
+            SoundManager.Instance.Play("impact", transform.position, 0f, 0.1f);
         }
 
         if (other.gameObject.CompareTag("Explosion"))
         {
             DamageByExplosion(other);
+            SoundManager.Instance.Play("impact", transform.position, 0f, 0.1f);
         }
 
      }
