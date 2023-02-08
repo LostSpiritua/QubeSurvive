@@ -1,8 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.IO.LowLevel.Unsafe;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Drop : MonoBehaviour

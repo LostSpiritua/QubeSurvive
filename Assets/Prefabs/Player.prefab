@@ -5063,6 +5063,46 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   flySpeed: 0.02
+--- !u!1 &2030890476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030890477}
+  - component: {fileID: 2030890478}
+  m_Layer: 0
+  m_Name: Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030890477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030890476}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7682958248276266012}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!81 &2030890478
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030890476}
+  m_Enabled: 1
 --- !u!1 &2046190947
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,7 +5112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046190948}
-  - component: {fileID: 2046190949}
+  - component: {fileID: 1483727682}
   m_Layer: 8
   m_Name: WeaponTeslaGun
   m_TagString: Untagged
@@ -5097,7 +5137,7 @@ Transform:
   m_Father: {fileID: 9008272205671713027}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2046190949
+--- !u!114 &1483727682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5106,7 +5146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2046190947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 087c7991bd37f904492d78930406698c, type: 3}
+  m_Script: {fileID: 11500000, guid: 21c41ffdb9322e347b44824b347d716b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackPower: 2
@@ -5210,7 +5250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bce6ee9ae272c3542bc6fd829a1cb79d, type: 2}
+  - {fileID: 2100000, guid: f490a71d695129f48b62338cc43f4638, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5264,6 +5304,7 @@ GameObject:
   - component: {fileID: 7682958248276266012}
   - component: {fileID: 7682958248276266014}
   - component: {fileID: 7682958248276266015}
+  - component: {fileID: 1147823737}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -5284,6 +5325,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9008272205671713027}
+  - {fileID: 2030890477}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5342,6 +5384,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!81 &1147823737
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682958248276266011}
+  m_Enabled: 0
 --- !u!1 &7682958248654105395
 GameObject:
   m_ObjectHideFlags: 0
@@ -5446,7 +5496,7 @@ PrefabInstance:
     - target: {fileID: 6502238540430965432, guid: 41929aef0e9af204a886c298abdf2a92,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Projectile
       objectReference: {fileID: 0}
     - target: {fileID: 6502238540430965437, guid: 41929aef0e9af204a886c298abdf2a92,
         type: 3}
@@ -6514,8 +6564,36 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8697025173345515977}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6502238540430965432, guid: 41929aef0e9af204a886c298abdf2a92,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 735359532}
   m_SourcePrefab: {fileID: 100100000, guid: 41929aef0e9af204a886c298abdf2a92, type: 3}
+--- !u!1 &6502238540353034617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6502238540430965432, guid: 41929aef0e9af204a886c298abdf2a92,
+    type: 3}
+  m_PrefabInstance: {fileID: 94708673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &735359532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6502238540353034617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d95a43e261e242459823e52a444a35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSound: rocketlaunch
+  timeS: 0
+  delayS: 0
+  dissapearSound: explosion
+  timeD: 0
+  delayD: 0
 --- !u!4 &6502238540353034620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502238540430965437, guid: 41929aef0e9af204a886c298abdf2a92,
@@ -7533,6 +7611,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697025171595632258, guid: 0dbb4efcfab5de145909813664eeefb4,
         type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025171595632258, guid: 0dbb4efcfab5de145909813664eeefb4,
+        type: 3}
       propertyPath: VelocityModule.x.minScalar
       value: 0.5
       objectReference: {fileID: 0}
@@ -7565,6 +7648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: CollisionModule.colliderForce
       value: 90.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697025171595632258, guid: 0dbb4efcfab5de145909813664eeefb4,
+        type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8697025171595632258, guid: 0dbb4efcfab5de145909813664eeefb4,
         type: 3}
@@ -8612,7 +8700,11 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6251499240803253749, guid: 41929aef0e9af204a886c298abdf2a92, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6502238540430965432, guid: 41929aef0e9af204a886c298abdf2a92,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 169209075}
   m_SourcePrefab: {fileID: 100100000, guid: 41929aef0e9af204a886c298abdf2a92, type: 3}
 --- !u!198 &981646664 stripped
 ParticleSystem:
@@ -8626,3 +8718,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6502238541076973559}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &981646671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6502238540430965432, guid: 41929aef0e9af204a886c298abdf2a92,
+    type: 3}
+  m_PrefabInstance: {fileID: 6502238541076973559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &169209075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981646671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d95a43e261e242459823e52a444a35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSound: shoot
+  timeS: 0
+  delayS: 0
+  dissapearSound: bullet
+  timeD: 0
+  delayD: 0

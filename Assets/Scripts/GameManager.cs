@@ -19,31 +19,22 @@ public class GameManager : MonoBehaviour
     public float scores;                      // Scores
     public int totalKills;                    // Total kills counter
     public bool gameOver = false;             // Check for Game Over
+    public bool gamePaused = false;           // Check for pause
+    public bool gameStarted = false;          // Check for first start
+    public float musicVolume = 1f;
+    public float soundVolume = 1f;
 
-        
     // Start is called before the first frame update
     void Start()
     {
-        CheckForExist();      
+        CheckForExist();
+        Time.timeScale = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         gameTime += Time.deltaTime; // TEMP
-        if (gameOver)
-        {
-            GameOver();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R) && gameOver) // TEMP
-        {
-            gameTime = 0f;
-            lives = 3;
-            gameOver = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Time.timeScale = 1f;
-        }
     }
 
     // Singletone for GameManager
@@ -57,22 +48,5 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    // Add or remove lives depend from value & check for gamer over
-    public void LivesAction(int value)
-    {
-        Lives += value;
-        if (lives < 0)
-        {
-            gameOver = true;
-        }
-
     } 
-    
-    // GameOver method by scaling time to zero
-    public void GameOver()
-    {
-        Time.timeScale = 0f;
-    }
 }

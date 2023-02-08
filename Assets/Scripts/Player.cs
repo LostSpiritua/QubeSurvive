@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Rendering;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -24,10 +22,11 @@ public class Player : MonoBehaviour
     private HudUpdate HUD;                                              // Access to HUDUpdate script    
     private Renderer playerMat;                                         // Player material
     private Color playerColor;                                          // Player material's color
-
+    private LvlControl C;
     // Start is called before the first frame update
     void Start()
     {
+        C = GameObject.Find("LvlControl").GetComponent<LvlControl>();
         playerSpeedDefault = playerSpeed; 
         playerArmorDefault = playerArmor;
         playerHealthDefault = playerHealth;
@@ -40,9 +39,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        LookTowardMouse();
-        PlayerMove();
-        ArmorRestore();
+        if (GameManager.Instance.gameStarted)
+        {
+            LookTowardMouse();
+            PlayerMove();
+            ArmorRestore();
+        }
     }
 
 
@@ -74,14 +76,14 @@ public class Player : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-                Vector3 inputDirection = new Vector3(inputX, 0f, inputY).normalized;
+        Vector3 inputDirection = new Vector3(inputX, 0f, inputY).normalized;
 
         gameObject.transform.Translate(inputDirection * playerSpeed * Time.deltaTime, Space.World);
 
-        if (inputX != 0f || inputY != 0f) 
-        {
-            SoundManager.Instance.StepSound(playerSpeed, 0.4f); 
-        }
+       // if (inputX != 0f || inputY != 0f) 
+       // {
+       //     SoundManager.Instance.StepSound(playerSpeed, 0.4f, transform.position); 
+       // }
     }
 
 
@@ -121,7 +123,7 @@ public class Player : MonoBehaviour
 
             if (playerHealth <= 0)
             {
-                GameManager.Instance.LivesAction(-1);
+                C.LivesAction(-1);
                 HUD.LivesHUDUpdate();
                 if (!(GameManager.Instance.Lives < 0))
                 {

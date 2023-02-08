@@ -13,10 +13,13 @@ public abstract class Weapon : MonoBehaviour
     
     public virtual void Update()
     {
-        if (Input.GetMouseButton(0) && timeUntilNextShoot < Time.time) 
+        if (GameManager.Instance.gameStarted)
         {
-            Shoot();
-            timeUntilNextShoot = Time.time + fireRate;
+            if (Input.GetMouseButton(0) && timeUntilNextShoot < Time.time) 
+            {
+                Shoot();
+                timeUntilNextShoot = Time.time + fireRate;
+            }
         }
     }
 

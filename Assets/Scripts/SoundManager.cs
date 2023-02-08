@@ -46,43 +46,43 @@ public class SoundManager : MonoBehaviour
 
     public void Play(string name, Vector3 pos, float time, float delay)
     {
-        Sound s = Array.Find(sound, sound => sound.name == name);
-
-        if (s == null)
+        if (!GameManager.Instance.gamePaused || !GameManager.Instance.gameOver)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
-        }
+            Sound s = Array.Find(sound, sound => sound.name == name);
 
-        if (CanPlaySound(s.tagename, delay))
-        {
-            GameObject sounder = pool.SpawnFromPool("Sound", pos, Quaternion.identity);
-
-            s.source = sounder.GetComponent<AudioSource>();
-            s.source.clip = s.clip;
-
-            if (s.name == "music")
+            if (s == null)
             {
-                s.source.volume = volumeMusic;
-            }
-            else
-            {
-                s.source.volume = PercentFromGlobalVolume(s.volume);
+                Debug.LogWarning("Sound: " + name + " not found!");
+                return;
             }
 
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-            // s.source.spatialBlend = 0.7f;
-            // s.source.spread = 300f;
-
-            if (time > 0)
+            if (CanPlaySound(s.tagename, delay))
             {
-                StartCoroutine(PlayForTime(time, s.source));
+                GameObject sounder = pool.SpawnFromPool("Sound", pos, Quaternion.identity);
+
+                s.source = sounder.GetComponent<AudioSource>();
+                s.source.clip = s.clip;
+
+                if (s.name == "music")
+                {
+                    s.source.volume = volumeMusic;
+                }
+                else
+                {
+                    s.source.volume = PercentFromGlobalVolume(s.volume);
+                }
+
+                s.source.pitch = s.pitch;
+                s.source.loop = s.loop;
+                // s.source.spatialBlend = 0.7f;
+                // s.source.spread = 300f;
+
+                if (time > 0)
+                {
+                    StartCoroutine(PlayForTime(time, s.source));
+                }
+                else StartCoroutine(PlayForTime(s.source.clip.length, s.source));
             }
-            else StartCoroutine(PlayForTime(s.source.clip.length, s.source));
-
-
-
         }
 
     }
@@ -105,8 +105,11 @@ public class SoundManager : MonoBehaviour
     private System.Collections.IEnumerator PlayForTime(float time, AudioSource s)
     {
         
+            
+        if (!GameManager.Instance.gamePaused)
+        {
             s.Play();
-        
+        }
 
         yield return new WaitForSeconds(time);
 
@@ -121,12 +124,21 @@ public class SoundManager : MonoBehaviour
 
         return vol - vol * tVol;
     }
-    public void StepSound(float speed, float delay)
+    public void StepSound(float speed, float delay, Vector3 position)
     {
         string[] step = { "step1", "step2", "step3", "step4", "step5", "step6" };
         int i;
         i = UnityEngine.Random.Range(0, step.Length);
         float tdelay = delay / speed;
-        SoundManager.Instance.Play(step[i], gameObject.transform.position, 0, tdelay);
+        Play(step[i], position, 0, tdelay);
+    }
+
+    public void PlayAnyway(string name, Vector3 pos)
+    {
+        Sound s = Array.Find(sound, sound => sound.name == name);
+        GameObject sounder = pool.SpawnFromPool("Sound", pos, Quaternion.identity);
+        s.source = sounder.GetComponent<AudioSource>();
+        s.source.clip = s.clip;
+        s.source.Play();
     }
 }
