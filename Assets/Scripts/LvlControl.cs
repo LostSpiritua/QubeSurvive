@@ -69,7 +69,11 @@ public class LvlControl : MonoBehaviour
     {
         GM.gameTime = 0f;
         GM.Lives = 3;
+        GM.totalKills = 0;
+        GM.scores = 0;
         GM.gameOver = false;
+        GM.gamePaused = false;
+        GM.gameStarted = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
